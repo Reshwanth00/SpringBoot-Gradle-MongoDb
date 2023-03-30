@@ -1,7 +1,7 @@
 package com.example.demo.Service;
 
 import com.example.demo.Model.User;
-import com.example.demo.RepositoryLayer.UserRepositor;
+import com.example.demo.RepositoryLayer.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class UserService {
     @Autowired
-    UserRepositor userRepositor;
+    UserRepository userRepositor;
 
     public User delUser(int id) {
         User user = userRepositor.findById(id).get();

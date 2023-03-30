@@ -12,24 +12,24 @@ import java.util.List;
 @RestController
 public class UserController {
     @Autowired
-    UserService userService;
+    UserService userServices;
     @PostMapping("/post")
     public ResponseEntity<String> addUser(@RequestBody User user){
-        userService.addUser(user);
+        userServices.addUser(user);
         return new ResponseEntity<>("Success", HttpStatus.ACCEPTED);
     }
     @GetMapping("/get")
     public ResponseEntity<List<User>> getUser(){
-        return new ResponseEntity<>(userService.getUser(),HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(userServices.getUser(),HttpStatus.ACCEPTED);
     }
     @PutMapping("/put")
     public ResponseEntity<String> putUser(@RequestParam int id,@RequestParam String name){
-        userService.putUser(id,name);
+        userServices.putUser(id,name);
         return new ResponseEntity<>("Changed",HttpStatus.ACCEPTED);
     }
     @DeleteMapping("/delete")
     public ResponseEntity<User> delUser(@RequestParam int id){
-        User user = userService.delUser(id);
+        User user = userServices.delUser(id);
         return new ResponseEntity<>(user,HttpStatus.ACCEPTED);
     }
 }
