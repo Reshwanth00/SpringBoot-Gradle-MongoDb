@@ -19,8 +19,9 @@ public class UserController {
         return new ResponseEntity<>("Success", HttpStatus.ACCEPTED);
     }
     @GetMapping("/get")
-    public ResponseEntity<List<User>> getUser(){
-        return new ResponseEntity<>(userServices.getUser(),HttpStatus.ACCEPTED);
+    public ResponseEntity<String> getUser(){
+        userServices.getUser();
+        return new ResponseEntity<>("Success",HttpStatus.ACCEPTED);
     }
     @PutMapping("/put")
     public ResponseEntity<String> putUser(@RequestParam int id,@RequestParam String name){
